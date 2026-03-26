@@ -52,7 +52,7 @@ A1 = np.clip(sigmoid(Z1), epsilon, 1-epsilon)
 Z2 = A1@W2 + b2
 A2 = np.clip(sigmoid(Z2), epsilon, 1-epsilon)
 
-E = -1/N * (Ytest*np.log(A2) + (1-Ytest)*np.log(1-A2)).sum(axis=0)
+E = -1/Ntest * (Ytest*np.log(A2) + (1-Ytest)*np.log(1-A2)).sum(axis=0)
 
 print(f"Testing E: {E}\n")
 A2 = (A2 >= 0.5).astype(int)
