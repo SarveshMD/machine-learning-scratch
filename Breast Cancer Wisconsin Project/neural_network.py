@@ -25,8 +25,6 @@ for i in range(10000):
     Z2 = A1@W2 + b2
     A2 = np.clip(sigmoid(Z2), epsilon, 1-epsilon)
 
-    E = -1/N * (Ytrain*np.log(A2) + (1-Ytrain)*np.log(1-A2)).sum(axis=0)
-
     dZ2 = A2-Ytrain
     dW2 = 1/N * A1.transpose()@dZ2
     db2 = 1/N * dZ2.sum(axis=0).reshape(1,1)
@@ -41,6 +39,7 @@ for i in range(10000):
     W2 = W2 - alpha * dW2
     b2 = b2 - alpha * db2
 
+E = -1/N * (Ytrain*np.log(A2) + (1-Ytrain)*np.log(1-A2)).sum(axis=0)
 print(f"\nTraining E: {E}")
 
 # Testing

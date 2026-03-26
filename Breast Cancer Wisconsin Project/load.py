@@ -21,9 +21,7 @@ df_X = (df_X - df_X_means)/df_X_sd
 df_test_X = df_test.drop(axis=0, columns='diagnosis')
 df_test_Y = df_test['diagnosis']
 
-df_test_X_means = df_test_X.mean(axis=0)
-df_test_X_sd = np.sqrt(df_test_X.var(axis=0))
-df_test_X = (df_test_X - df_test_X_means)/df_test_X_sd
+df_test_X = (df_test_X - df_X_means)/df_X_sd
 
 # Final Data: df_X, df_Y, df_test_X, df_test_Y
 # NP Arrays: Xtrain, Ytrain, Xtest, Ytest
